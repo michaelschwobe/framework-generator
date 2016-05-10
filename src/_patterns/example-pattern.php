@@ -1,0 +1,1 @@
+example <strong>pattern</strong>

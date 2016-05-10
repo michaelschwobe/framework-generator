@@ -1,0 +1,100 @@
+$app-bgcolor: rgb(43,48,59);
+$app-color: rgb(84,110,122);
+$app-color-alt: rgb(128,203,196);
+$app-active-bdcolor: rgb(139,195,74);
+$app-active-color: white;
+$app-menu-width: 150px;
+
+.app-toggle,
+.app-menu,
+.app-section-title {
+  font: bold 12px/1 sans-serif;
+}
+
+.app-toggle,
+.app-menu {
+  position: fixed;
+  z-index: 2000;
+  transition: left .3s ease;
+}
+
+.app-toggle {
+  z-index: 2001;
+  bottom: 1em;
+  left: 0;
+  display: block;
+  padding: 1.75em 1em;
+  user-select: none;
+  text-align: center;
+  color: $app-color-alt;
+  border: none;
+  border-radius: 0 .5em .5em 0;
+  outline: none;
+  background-color: $app-bgcolor;
+  span,
+  span::before,
+  span::after {
+    display: block;
+    width: 1.5em;
+    height: 1px;
+    content: '';
+    background-color: currentColor;
+  }
+  span {
+    margin-top: -1px;
+  }
+  span::before {
+    transform: translateY(-.5em);
+  }
+  span::after {
+    margin-top: -1px;
+    transform: translateY(.5em);
+  }
+  &.is-active {
+    left: $app-menu-width;
+  }
+}
+
+.app-menu {
+  top: 0;
+  bottom: 0;
+  left: $app-menu-width * -1;
+  width: $app-menu-width;
+  color: $app-color;
+  background-color: $app-bgcolor;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    margin: .5em 0;
+  }
+  a {
+    display: block;
+    padding: .75em 1.25em;
+    text-decoration: none;
+    color: $app-color;
+    border-left: 3px solid transparent;
+    &.is-active {
+      color: $app-active-color;
+      border-left-color: $app-active-bdcolor;
+    }
+  }
+  &.is-active {
+    left: 0;
+  }
+}
+
+.app-section-title {
+  overflow: hidden;
+  padding: 1rem;
+  white-space: nowrap;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: $app-color-alt;
+  background-color: $app-bgcolor;
+  &:first-child {
+    margin-top: 0;
+  }
+}
